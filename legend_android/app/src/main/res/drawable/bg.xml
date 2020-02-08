@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-</selector>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="60dp"
+        android:gravity="bottom|center_horizontal">
+        <bitmap
+            android:dither="true"
+            android:filter="true"
+            android:gravity="bottom|center_horizontal"
+            android:src="@drawable/background" />
+    </item>
+</layer-list>

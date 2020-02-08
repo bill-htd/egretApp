@@ -1,7 +1,10 @@
 package com.htd.legend;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -38,7 +41,7 @@ public class MainActivity extends Activity {
 
     private ImageView launchScreenImageView = null;
     private FrameLayout rootLayout = null;
-
+    public Activity instance = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +72,26 @@ public class MainActivity extends Activity {
 
         rootLayout = nativeAndroid.getRootFrameLayout();
         showLoadingView();
+        test();
     }
+
+    public void test() {
+        try {
+            PackageManager pm = instance.getPackageManager();
+
+            ApplicationInfo appInfo = pm.getApplicationInfo(instance.getPackageName(), PackageManager.GET_META_DATA);
+            nativeAndroid.callExternalInterface("sendToJS", appInfo.metaData.getString("channel"));
+            Log.d(TAG, " 开始获取渠道好 ");
+            Log.d(TAG, appInfo.metaData.getString("channel"));
+            return;
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        nativeAndroid.callExternalInterface("backChannel", null);
+    }
+
 
     private void showLoadingView() {
 
@@ -130,6 +152,28 @@ public class MainActivity extends Activity {
                 nativeAndroid.callExternalInterface("sendToJS", str);
             }
         });
+
+
+        nativeAndroid.setExternalInterface("getChannel", new INativePlayer.INativeInterface() {
+            @Override
+            public void callback(String message) {
+                try {
+                    PackageManager pm = instance.getPackageManager();
+
+                    ApplicationInfo appInfo = pm.getApplicationInfo(instance.getPackageName(), PackageManager.GET_META_DATA);
+                    nativeAndroid.callExternalInterface("backChannel", appInfo.metaData.getString("channel"));
+                    Log.d(TAG, appInfo.metaData.getString("channel"));
+                    return;
+
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                nativeAndroid.callExternalInterface("backChannel", null);
+            }
+        });
+
+
 
         nativeAndroid.setExternalInterface("openURL", new INativePlayer.INativeInterface() {
             @Override
