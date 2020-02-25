@@ -30,8 +30,8 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
     productFlavors{
-        xiaomi{
-            manifestPlaceholders = [APP_CHANNEL_VALUE:"xiaomi"]
+        lx{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"lx"]
         }
         baidu{
             manifestPlaceholders = [APP_CHANNEL_VALUE:"baidu"]
