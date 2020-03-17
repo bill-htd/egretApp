@@ -2,13 +2,94 @@
 <items version="2" >
 
     <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\incremental-classes\CQ\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4dc66fb8343d2e95084044c124d650af120e823c">
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\transforms\dex\CQ\debug\folders\1000\10000\instant-run-bootstrap_9f96f92f2897469c982408d9a951e1d37b086d27\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\incremental-classes\lx\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="aacc84fc3c7b61a661663eb459951577828c6161">
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\transforms\dex\lx\debug\folders\1000\10000\instant-run-bootstrap_fcb09de07471ec6711027460a7d9e8862c16ad1c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\incremental-runtime-classes\zhousi\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\transforms\dex\zhousi\debug\folders\1000\10000\instant-run_7fef8006ec2f9a592cbd969e86fd324dc5a40598\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\incremental-runtime-classes\baidu\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\transforms\dex\baidu\debug\folders\1000\10000\instant-run_3496837050219f3f47eeae49f6768d21f11487cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\incremental-runtime-classes\CQ\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\transforms\dex\CQ\debug\folders\1000\10000\instant-run_42969ab6a30e6527c1e3c03e39d478f49a97acce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\incremental-runtime-classes\lx\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\transforms\dex\lx\debug\folders\1000\10000\instant-run_f9b3f2a3937fffa21e39111d647e00ae364c2d4e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\incremental-classes\zhousi\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4a902650a07d8647085aab7c368ae28a90ebc216">
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\transforms\dex\zhousi\debug\folders\1000\10000\instant-run-bootstrap_a4703acc04488cf3dfb8543cb5956383fbf5b265\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
-        jar="C:\Users\Administrator\.android\build-cache\a1de993752d645bfc39f12b9eaa0a15035a701a2\output\jars\libs\egretNativeAndroid.jar"
+        jar="C:\Users\Admin\.android\build-cache\773e9374316cea137a2a8b6281546e94067d39be\output\jars\libs\egretNativeAndroid.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="c54704cff8bc4f0e60d6ddb712d1d78535fa81e2">
-        <dex dex="D:\egretProject\htdApp\egretApp\legend_android\app\build\intermediates\pre-dexed\baidu\release\egretNativeAndroid_33eeddc5dd7bfec49b4abfe94e6c0e9c1d5edf97.jar" />
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\pre-dexed\baidu\debug\egretNativeAndroid_c4fdcd590558be44e469e9389703ffd356514261.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\incremental-classes\baidu\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="99d8f2eb72a5df040ba4a2ca042a39caf5569fa7">
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\transforms\dex\baidu\debug\folders\1000\10000\instant-run-bootstrap_3c6ddeafea1c6853379a18b0b96c5c3733a73f41\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\.android\build-cache\773e9374316cea137a2a8b6281546e94067d39be\output\jars\libs\egretNativeAndroid.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c54704cff8bc4f0e60d6ddb712d1d78535fa81e2">
+        <dex dex="C:\Users\Admin\Desktop\egret_android\egretApp\legend_android\app\build\intermediates\transforms\dex\baidu\debug\folders\1000\10\egretNativeAndroid_c4fdcd590558be44e469e9389703ffd356514261\classes.dex" />
     </item>
 
 </items>

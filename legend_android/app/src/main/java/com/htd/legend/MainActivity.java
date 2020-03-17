@@ -61,8 +61,10 @@ public class MainActivity extends Activity {
 //        http://192.168.50.190/dashboard/
 
 //        http://damete.com/App/index.html
+//        http://qsdate.com/App/index.html
+//        http://192.168.50.190/dashboard/app//index.html
         setExternalInterfaces();
-        if (!nativeAndroid.initialize("http://damete.com/App/index.html")) {
+        if (!nativeAndroid.initialize("http://192.168.50.190/dashboard/app//index.html")) {
             Toast.makeText(this, "Initialize native failed.",
                     Toast.LENGTH_LONG).show();
             return;
@@ -80,6 +82,7 @@ public class MainActivity extends Activity {
             PackageManager pm = instance.getPackageManager();
 
             ApplicationInfo appInfo = pm.getApplicationInfo(instance.getPackageName(), PackageManager.GET_META_DATA);
+            System.out.println(appInfo);
             nativeAndroid.callExternalInterface("sendToJS", appInfo.metaData.getString("channel"));
             Log.d(TAG, " 开始获取渠道好 ");
             Log.d(TAG, appInfo.metaData.getString("channel"));
@@ -162,6 +165,7 @@ public class MainActivity extends Activity {
 
                     ApplicationInfo appInfo = pm.getApplicationInfo(instance.getPackageName(), PackageManager.GET_META_DATA);
                     nativeAndroid.callExternalInterface("backChannel", appInfo.metaData.getString("channel"));
+                    Log.d(TAG, "获取的渠道 ： ");
                     Log.d(TAG, appInfo.metaData.getString("channel"));
                     return;
 
