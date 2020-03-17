@@ -11,6 +11,10 @@ android {
         // ndk {
         //     abiFilters 'armeabi-v7a'
         // }
+//        manifestPlaceholders = [
+//                JPUSH_APPKEY : "e359a8039a50515d7ddbd4b1", //JPush上注册的包名对应的appkey.
+//                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+//        ]
     }
     buildTypes {
         release {
@@ -44,4 +48,7 @@ android {
 
 dependencies {
     compile(name: 'egret', ext: 'aar')
+    compile fileTree(include: '*.jar', dir: 'libs')
+//    compile 'cn.jiguang.sdk:janalytics:2.1.0' // 此处以JAnalytics 2.1.0 版本为例。
+//    compile 'cn.jiguang.sdk:jcore:1.2.6' // 此处以JCore 1.2.6 版本为例。
 }

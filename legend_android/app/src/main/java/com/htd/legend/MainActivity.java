@@ -20,6 +20,8 @@ import org.egret.egretnativeandroid.EgretNativeAndroid;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import cn.jiguang.analytics.android.api.JAnalyticsInterface;
+
 //Android项目发布设置详见doc目录下的README_ANDROID.md
 
 public class MainActivity extends Activity {
@@ -74,26 +76,15 @@ public class MainActivity extends Activity {
 
         rootLayout = nativeAndroid.getRootFrameLayout();
         showLoadingView();
-        test();
+
+        JAnalyticsInterface.init(this);
+        JAnalyticsInterface.setDebugMode(true);
+        JAnalyticsInterface.initCrashHandler(this);
+        JAnalyticsInterface.setChannel(this, "lx");
+        JAnalyticsInterface.onPageStart(this,this.getClass().getCanonicalName());
     }
 
-    public void test() {
-        try {
-            PackageManager pm = instance.getPackageManager();
 
-            ApplicationInfo appInfo = pm.getApplicationInfo(instance.getPackageName(), PackageManager.GET_META_DATA);
-            System.out.println(appInfo);
-            nativeAndroid.callExternalInterface("sendToJS", appInfo.metaData.getString("channel"));
-            Log.d(TAG, " 开始获取渠道好 ");
-            Log.d(TAG, appInfo.metaData.getString("channel"));
-            return;
-
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        nativeAndroid.callExternalInterface("backChannel", null);
-    }
 
 
     private void showLoadingView() {
@@ -112,7 +103,7 @@ public class MainActivity extends Activity {
         rootLayout.addView(launchScreenImageView, params);
     }
     private void hideLoadingView() {
-
+        JAnalyticsInterface.onPageEnd(this,this.getClass().getCanonicalName());
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {

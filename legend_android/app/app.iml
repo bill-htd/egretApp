@@ -141,6 +141,8 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="__local_jars__:C.\Users\Admin\Desktop\egretApp\egretApp\legend_android\app\libs\janalytics-android-2.1.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="egret:@aar" level="project" />
+    <orderEntry type="library" exported="" name="__local_jars__:C.\Users\Admin\Desktop\egretApp\egretApp\legend_android\app\libs\jcore-android-2.3.0.jar:unspecified@jar" level="project" />
   </component>
 </module>

@@ -8,6 +8,15 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -16,6 +25,9 @@
 
         <meta-data android:name="android.max_aspect" android:value="2.3" />
         <meta-data android:name="channel" android:value="${APP_CHANNEL_VALUE}"/>
+
+        <meta-data android:name="JPUSH_APPKEY" android:value="e359a8039a50515d7ddbd4b1"/>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="lx"/>
 
         <activity android:name=".MainActivity"
             android:launchMode="singleTask"
