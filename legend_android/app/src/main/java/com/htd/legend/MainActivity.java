@@ -106,20 +106,22 @@ public class MainActivity extends Activity {
     private void jpushTEst() {
         // 设置提示时间段
         Set<Integer> days = new HashSet<Integer>();
+        days.add(0);
         days.add(1);
         days.add(2);
         days.add(3);
         days.add(4);
         days.add(5);
-        JPushInterface.setPushTime(getApplicationContext(), days, 10, 23);
+        days.add(6);
+        JPushInterface.setPushTime(getApplicationContext(), days, 0, 23);
 
 
         // 设置通知样式
-        BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(this);
-        builder.statusBarDrawable = R.drawable.ic_launcher;
-        builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为点击后自动消失
-        builder.notificationDefaults = Notification.DEFAULT_SOUND;  //设置为铃声（ Notification.DEFAULT_SOUND）或者震动（ Notification.DEFAULT_VIBRATE）
-        JPushInterface.setPushNotificationBuilder(1, builder);
+        BasicPushNotificationBuilder _builder = new BasicPushNotificationBuilder(this);
+        _builder.statusBarDrawable = R.drawable.ic_launcher;
+        _builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为点击后自动消失
+        _builder.notificationDefaults = Notification.DEFAULT_SOUND;  //设置为铃声（ Notification.DEFAULT_SOUND）或者震动（ Notification.DEFAULT_VIBRATE）
+        JPushInterface.setPushNotificationBuilder(1, _builder);
 //        Toast.makeText(this, "有新的消息", Toast.LENGTH_SHORT).show();
 
 //        CustomPushNotificationBuilder builder = new CustomPushNotificationBuilder(this, R.layout.customer_notitfication_layout, R.id.icon, R.id.title, R.id.text);
