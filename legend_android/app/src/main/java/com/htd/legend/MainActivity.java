@@ -1,6 +1,7 @@
 package com.htd.legend;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -20,7 +21,15 @@ import org.egret.egretnativeandroid.EgretNativeAndroid;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import cn.jiguang.analytics.android.api.JAnalyticsInterface;
+import cn.jiguang.analytics.android.api.LoginEvent;
+import cn.jiguang.analytics.android.api.RegisterEvent;
+import cn.jpush.android.api.BasicPushNotificationBuilder;
+import cn.jpush.android.api.CustomPushNotificationBuilder;
+import cn.jpush.android.api.JPushInterface;
 
 //Android项目发布设置详见doc目录下的README_ANDROID.md
 
@@ -44,6 +53,12 @@ public class MainActivity extends Activity {
     private ImageView launchScreenImageView = null;
     private FrameLayout rootLayout = null;
     public Activity instance = this;
+    public static boolean isForeground = false;
+
+    public static final String MESSAGE_RECEIVED_ACTION = "com.htd.legend.MESSAGE_RECEIVED_ACTION";
+    public static final String KEY_MESSAGE = "message";
+    public static final String KEY_EXTRAS = "extras";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,14 +92,42 @@ public class MainActivity extends Activity {
         rootLayout = nativeAndroid.getRootFrameLayout();
         showLoadingView();
 
+//        JAnalyticsInterface.setDebugMode(true);
+        // 统计初始化
         JAnalyticsInterface.init(this);
-        JAnalyticsInterface.setDebugMode(true);
         JAnalyticsInterface.initCrashHandler(this);
-        JAnalyticsInterface.setChannel(this, "lx");
-        JAnalyticsInterface.onPageStart(this,this.getClass().getCanonicalName());
+        //  推送初始化
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+
+        jpushTEst();
+
     }
+    private void jpushTEst() {
+        // 设置提示时间段
+        Set<Integer> days = new HashSet<Integer>();
+        days.add(1);
+        days.add(2);
+        days.add(3);
+        days.add(4);
+        days.add(5);
+        JPushInterface.setPushTime(getApplicationContext(), days, 10, 23);
 
 
+        // 设置通知样式
+        BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(this);
+        builder.statusBarDrawable = R.drawable.ic_launcher;
+        builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为点击后自动消失
+        builder.notificationDefaults = Notification.DEFAULT_SOUND;  //设置为铃声（ Notification.DEFAULT_SOUND）或者震动（ Notification.DEFAULT_VIBRATE）
+        JPushInterface.setPushNotificationBuilder(1, builder);
+//        Toast.makeText(this, "有新的消息", Toast.LENGTH_SHORT).show();
+
+//        CustomPushNotificationBuilder builder = new CustomPushNotificationBuilder(this, R.layout.customer_notitfication_layout, R.id.icon, R.id.title, R.id.text);
+//        builder.layoutIconDrawable = R.drawable.ic_launcher;
+//        builder.developerArg0 = "developerArg2";
+//        JPushInterface.setPushNotificationBuilder(2, builder);
+//        Toast.makeText(this, "Custom Builder - 2", Toast.LENGTH_SHORT).show();
+    }
 
 
     private void showLoadingView() {
@@ -103,7 +146,6 @@ public class MainActivity extends Activity {
         rootLayout.addView(launchScreenImageView, params);
     }
     private void hideLoadingView() {
-        JAnalyticsInterface.onPageEnd(this,this.getClass().getCanonicalName());
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -117,12 +159,14 @@ public class MainActivity extends Activity {
     }
     @Override
     protected void onPause() {
+        isForeground = false;
         super.onPause();
         nativeAndroid.pause();
     }
 
     @Override
     protected void onResume() {
+        isForeground = true;
         super.onResume();
         nativeAndroid.resume();
     }
@@ -147,9 +191,33 @@ public class MainActivity extends Activity {
             }
         });
 
+        // 登录统计
+        nativeAndroid.setExternalInterface("loginStatistics", new INativePlayer.INativeInterface() {
+            @Override
+            public void callback(String message) {
+                Log.d(TAG, message);
+                LoginEvent lEvent = new LoginEvent("lx",true);
+                lEvent.addKeyValue("name","赵子龙").addKeyValue("id","10086");
+                JAnalyticsInterface.onEvent(instance, lEvent);
+
+            }
+        });
+        // 注册统计
+        nativeAndroid.setExternalInterface("registerStatistics", new INativePlayer.INativeInterface() {
+            @Override
+            public void callback(String message) {
+                Log.d(TAG, message);
+                RegisterEvent rEvent = new RegisterEvent("lx",true);
+                rEvent.addKeyValue("name","赵子龙").addKeyValue("id","10086");
+                JAnalyticsInterface.onEvent(instance, rEvent);
+
+//                nativeAndroid.callExternalInterface("sendToJS", str);
+            }
+        });
 
         nativeAndroid.setExternalInterface("getChannel", new INativePlayer.INativeInterface() {
             @Override
+
             public void callback(String message) {
                 try {
                     PackageManager pm = instance.getPackageManager();
@@ -158,6 +226,9 @@ public class MainActivity extends Activity {
                     nativeAndroid.callExternalInterface("backChannel", appInfo.metaData.getString("channel"));
                     Log.d(TAG, "获取的渠道 ： ");
                     Log.d(TAG, appInfo.metaData.getString("channel"));
+
+
+
                     return;
 
                 } catch (PackageManager.NameNotFoundException e) {
