@@ -2,7 +2,6 @@ package com.htd.legend;
 
 import android.app.Activity;
 import android.app.Notification;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -10,6 +9,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
@@ -21,14 +21,17 @@ import org.egret.egretnativeandroid.EgretNativeAndroid;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import cn.jiguang.analytics.android.api.JAnalyticsInterface;
 import cn.jiguang.analytics.android.api.LoginEvent;
 import cn.jiguang.analytics.android.api.RegisterEvent;
 import cn.jpush.android.api.BasicPushNotificationBuilder;
-import cn.jpush.android.api.CustomPushNotificationBuilder;
 import cn.jpush.android.api.JPushInterface;
 
 //Android项目发布设置详见doc目录下的README_ANDROID.md
@@ -75,17 +78,63 @@ public class MainActivity extends Activity {
         nativeAndroid.config.disableNativeRender = false;
         nativeAndroid.config.clearCache = false;
         nativeAndroid.config.loadingTimeout = 0;
+
+
+
+
 //        http://192.168.50.190/dashboard/
 
 //        http://damete.com/App/index.html
 //        http://qsdate.com/App/index.html
 //        http://192.168.50.190/dashboard/app//index.html
+
+
+
         setExternalInterfaces();
-        if (!nativeAndroid.initialize("http://192.168.50.190/dashboard/app//index.html")) {
-            Toast.makeText(this, "Initialize native failed.",
-                    Toast.LENGTH_LONG).show();
-            return;
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
         }
+
+//       http://cq.jiyuzulin.com/index.html
+//        http://cq.wisship.com/index.html
+//        http://cq.techan0812.com/index.html
+//        http://cq.fjxmigc.com/index.html
+
+        if(checkUrl("http://cq.jiyuzulin.com/index.html")){
+            Log.d(TAG, "地址：http://cq.jiyuzulin.com/index.html");
+            if (!nativeAndroid.initialize("http://cq.jiyuzulin.com/index.html")) {
+                Toast.makeText(this, "Initialize native failed.",
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
+        }else if(checkUrl("http://cq.wisship.com/index.html")){
+            Log.d(TAG, "地址：http://cq.wisship.com/index.html ");
+            if (!nativeAndroid.initialize("http://cq.wisship.com/index.html")) {
+                Toast.makeText(this, "Initialize native failed.",
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
+        }else if(checkUrl("http://cq.techan0812.com/index.html")){
+            Log.d(TAG, "地址：http://cq.techan0812.com/index.html");
+            if (!nativeAndroid.initialize("http://cq.techan0812.com/index.html")) {
+                Toast.makeText(this, "Initialize native failed.",
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
+        }else if(checkUrl("http://cq.fjxmigc.com/index.html")){
+            Log.d(TAG, "地址：http://cq.fjxmigc.com/index.html");
+            if (!nativeAndroid.initialize("http://cq.fjxmigc.com/index.html")) {
+                Toast.makeText(this, "Initialize native failed.",
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
+        }else{
+            Toast.makeText(this, "网络请求失败 请稍后再试",
+                    Toast.LENGTH_LONG).show();
+        }
+
+
 
         setContentView(nativeAndroid.getRootFrameLayout());
 
@@ -100,10 +149,28 @@ public class MainActivity extends Activity {
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
 
-        jpushTEst();
+        jpushT_init();
 
     }
-    private void jpushTEst() {
+        public boolean  checkUrl(String urlStr) {
+
+            URL url;
+            try {
+                url = new URL(urlStr);
+                InputStream in = url.openStream();
+                System.out.println("连接可用");
+                return true;
+            } catch (Exception e1) {
+                System.out.println(e1);
+                System.out.println("连接打不开!");
+                return false;
+            }
+
+
+
+        }
+
+    private void jpushT_init() {
         // 设置提示时间段
         Set<Integer> days = new HashSet<Integer>();
         days.add(0);
@@ -199,7 +266,7 @@ public class MainActivity extends Activity {
             public void callback(String message) {
                 Log.d(TAG, message);
                 LoginEvent lEvent = new LoginEvent("lx",true);
-                lEvent.addKeyValue("name","赵子龙").addKeyValue("id","10086");
+//                lEvent.addKeyValue("name","赵子龙").addKeyValue("id","10086");
                 JAnalyticsInterface.onEvent(instance, lEvent);
 
             }
@@ -210,7 +277,7 @@ public class MainActivity extends Activity {
             public void callback(String message) {
                 Log.d(TAG, message);
                 RegisterEvent rEvent = new RegisterEvent("lx",true);
-                rEvent.addKeyValue("name","赵子龙").addKeyValue("id","10086");
+//                rEvent.addKeyValue("name","赵子龙").addKeyValue("id","10086");
                 JAnalyticsInterface.onEvent(instance, rEvent);
 
 //                nativeAndroid.callExternalInterface("sendToJS", str);
@@ -300,6 +367,9 @@ public class MainActivity extends Activity {
         switch (error) {
             case MainActivity.errorIndexLoadFailed:
                 Log.e(TAG, "errorIndexLoadFailed");
+//                Log.d(TAG, "没有地址啊 啊啊啊 啊啊 ： ");
+//                nativeAndroid.initialize("http://47.112.41.33/App/index.html");
+
                 break;
             case MainActivity.errorJSLoadFailed:
                 Log.e(TAG, "errorJSLoadFailed");

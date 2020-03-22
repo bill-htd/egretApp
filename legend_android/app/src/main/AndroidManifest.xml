@@ -43,7 +43,7 @@
         <meta-data android:name="channel" android:value="${APP_CHANNEL_VALUE}"/>
 
         <meta-data android:name="JPUSH_APPKEY" android:value="e359a8039a50515d7ddbd4b1"/>
-        <meta-data android:name="JPUSH_CHANNEL" android:value="lx"/>
+        <meta-data android:name="JPUSH_CHANNEL" android:value="${APP_CHANNEL_VALUE}"/>
 
         <activity android:name=".MainActivity"
             android:launchMode="singleTask"
@@ -69,23 +69,6 @@
                 <category android:name="jpush.testCategory" />
             </intent-filter>
         </activity>
-
-
-        <!--&lt;!&ndash; 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 设置成 true。 &ndash;&gt;-->
-        <!--<activity-->
-            <!--android:name="cn.jpush.android.ui.PushActivity"-->
-            <!--android:configChanges="orientation|keyboardHidden"-->
-            <!--android:theme="@android:style/Theme.NoTitleBar"-->
-            <!--android:exported="true" >-->
-            <!--<intent-filter>-->
-                <!--<action android:name="cn.jpush.android.ui.PushActivity" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-                <!--<category android:name="com.htd.legend" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
-
-
-
 
 
         <!-- Required SDK核心功能-->
