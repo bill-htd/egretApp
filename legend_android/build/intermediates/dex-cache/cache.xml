@@ -2,31 +2,49 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="D:\egretProject\htdApp\egretApp\legend_android\app\libs\jpush-android-3.5.8.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\libs\jpush-android-3.5.8.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.2"
         sha1="c7216828f8f673c48c56378f591cfce7f0db66d1">
-        <dex dex="D:\egretProject\htdApp\egretApp\legend_android\app\build\intermediates\pre-dexed\CQ\debug\jpush-android-3.5.8_40d0c0911395c213447838ccac2aec3d8cfdd8f6.jar" />
+        <dex dex="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\build\intermediates\transforms\dex\lx\debug\folders\1000\2\jpush-android-3.5.8_3a6a66b7f36b40d6f1d56e827ad802648ceec0ce\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="D:\egretProject\htdApp\egretApp\legend_android\app\libs\janalytics-android-2.1.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\build\intermediates\incremental-classes\lx\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="01c2abaf0bbe5d83fc726a48d4152be37bf7dfb2">
-        <dex dex="D:\egretProject\htdApp\egretApp\legend_android\app\build\intermediates\pre-dexed\CQ\debug\janalytics-android-2.1.0_12aae2dac1c9c943090dc98e12250157c68bcb20.jar" />
+        sha1="cbf660392407478b006d4ab0753a2e35471cb61e">
+        <dex dex="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\build\intermediates\transforms\dex\lx\debug\folders\1000\10000\instant-run-bootstrap_d8491d24dde78c6225f935b92b8c9b457c121633\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="D:\egretProject\htdApp\egretApp\legend_android\app\libs\jcore-android-2.3.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\libs\jcore-android-2.3.0.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.2"
         sha1="31457da523b4f92c3ee5553154f120e947980efb">
-        <dex dex="D:\egretProject\htdApp\egretApp\legend_android\app\build\intermediates\pre-dexed\CQ\debug\jcore-android-2.3.0_b8529cee5e4330dbabb695bc47847e9cc7d8de11.jar" />
+        <dex dex="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\build\intermediates\transforms\dex\lx\debug\folders\1000\2\jcore-android-2.3.0_e8161e616fcd02550f8fa2ab68e6ea9563b04a4c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\libs\janalytics-android-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="01c2abaf0bbe5d83fc726a48d4152be37bf7dfb2">
+        <dex dex="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\build\intermediates\transforms\dex\lx\debug\folders\1000\2\janalytics-android-2.1.0_aa1bb512a9941f3abaedfffa7c04088e870dfb0c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\build\intermediates\incremental-runtime-classes\lx\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="C:\Users\Admin\Desktop\Appdabao\egretApp\legend_android\app\build\intermediates\transforms\dex\lx\debug\folders\1000\10000\instant-run_e1677e51820cda567a27cd81d168ee9f56a98532\classes.dex" />
     </item>
 
 </items>

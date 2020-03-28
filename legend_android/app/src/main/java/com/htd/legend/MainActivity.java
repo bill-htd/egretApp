@@ -101,6 +101,24 @@ public class MainActivity extends Activity {
 //        http://cq.techan0812.com/index.html
 //        http://cq.fjxmigc.com/index.html
 
+
+//        if(checkUrl("http://192.168.50.190/dashboard/app/index.html")){
+//            Log.d(TAG, "地址：http://cq.jiyuzulin.com/index.html");
+//            if (!nativeAndroid.initialize("http://192.168.50.190/dashboard/app/index.html")) {
+//                Toast.makeText(this, "Initialize native failed.",
+//                        Toast.LENGTH_LONG).show();
+//                return;
+//            }
+//        }else
+
+        if(checkUrl("http://cq.scmyxs.com/index.html")){
+            Log.d(TAG, "地址：http://cq.scmyxs.com/index.html");
+            if (!nativeAndroid.initialize("http://cq.scmyxs.com/index.html")) {
+                Toast.makeText(this, "Initialize native failed.",
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
+        }else
         if(checkUrl("http://cq.jiyuzulin.com/index.html")){
             Log.d(TAG, "地址：http://cq.jiyuzulin.com/index.html");
             if (!nativeAndroid.initialize("http://cq.jiyuzulin.com/index.html")) {
