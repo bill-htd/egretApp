@@ -37,12 +37,18 @@ android {
         lx{
             manifestPlaceholders = [APP_CHANNEL_VALUE:"lx"]
         }
-//        zhousi{
-//            manifestPlaceholders = [APP_CHANNEL_VALUE:"zhousi"]
-//        }
-//        CQ{
-//            manifestPlaceholders = [APP_CHANNEL_VALUE:"CQ"]
-//        }
+        zhousi{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"zhousi"]
+        }
+        CQ{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"CQ"]
+        }
+        haixing{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"haixing"]
+        }
+        shanhu{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"shanhu"]
+        }
     }
 }
 

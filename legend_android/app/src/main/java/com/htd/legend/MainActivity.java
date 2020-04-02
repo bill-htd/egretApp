@@ -282,8 +282,8 @@ public class MainActivity extends Activity {
         nativeAndroid.setExternalInterface("loginStatistics", new INativePlayer.INativeInterface() {
             @Override
             public void callback(String message) {
-                Log.d(TAG, message);
-                LoginEvent lEvent = new LoginEvent("lx",true);
+                Log.d(TAG,"获取的渠道名 ："+ message);
+                LoginEvent lEvent = new LoginEvent(message,true);
 //                lEvent.addKeyValue("name","赵子龙").addKeyValue("id","10086");
                 JAnalyticsInterface.onEvent(instance, lEvent);
 
@@ -293,8 +293,8 @@ public class MainActivity extends Activity {
         nativeAndroid.setExternalInterface("registerStatistics", new INativePlayer.INativeInterface() {
             @Override
             public void callback(String message) {
-                Log.d(TAG, message);
-                RegisterEvent rEvent = new RegisterEvent("lx",true);
+                Log.d(TAG,"获取的渠道名 ："+ message);
+                RegisterEvent rEvent = new RegisterEvent(message,true);
 //                rEvent.addKeyValue("name","赵子龙").addKeyValue("id","10086");
                 JAnalyticsInterface.onEvent(instance, rEvent);
 
