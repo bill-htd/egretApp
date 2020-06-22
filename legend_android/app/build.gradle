@@ -34,6 +34,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
     productFlavors{
+        shanhu{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"shanhu"]
+        }
         lx{
             manifestPlaceholders = [APP_CHANNEL_VALUE:"lx"]
         }
@@ -46,9 +49,10 @@ android {
         haixing{
             manifestPlaceholders = [APP_CHANNEL_VALUE:"haixing"]
         }
-        shanhu{
-            manifestPlaceholders = [APP_CHANNEL_VALUE:"shanhu"]
+        hainiu{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"hainiu"]
         }
+
     }
 }
 
